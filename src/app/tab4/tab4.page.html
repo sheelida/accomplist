@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Add a new task
+      </ion-title>
+      <ion-button slot="end">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ion-input placeholder="Title"></ion-input>
+      <ion-label>Priority:</ion-label>
+      <ion-row class="ion-align-start">
+      <ion-col size="2">  
+        <div class="bullet-color1"></div>
+      </ion-col>
+      <ion-col size="2">
+          <div class="bullet-color2"></div>
+      </ion-col>        
+      <ion-col size="2">
+          <div class="bullet-color3"></div>
+      </ion-col>    
+    </ion-row>
+    <ion-textarea placeholder="Details"></ion-textarea>
+
+    <ion-img [src]="assets/picture.png"></ion-img>
+  </ion-content>
+  
