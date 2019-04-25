@@ -3,28 +3,33 @@
       <ion-title>
         Add a new task
       </ion-title>
-      <ion-button slot="end">
-        <ion-icon name="checkmark-circle"></ion-icon>
-      </ion-button>
+      <ion-buttons slot="end">
+          <ion-button (click)="addListTask(titleInput, detailsInput, priorityLevel, imagePath)">
+              <ion-icon name="checkmark-circle"></ion-icon>
+            </ion-button>
+      </ion-buttons>
+
     </ion-toolbar>
   </ion-header>
   
   <ion-content>
-      <ion-input placeholder="Title"></ion-input>
+      <ion-input placeholder="Title" [(ngModel)]="titleInput"></ion-input>
       <ion-label>Priority:</ion-label>
       <ion-row class="ion-align-start">
       <ion-col size="2">  
-        <div class="bullet-color1"></div>
+        <div class="bullet-color1" (click)="changePriorityLevel(1)"></div>
       </ion-col>
       <ion-col size="2">
-          <div class="bullet-color2"></div>
+          <div class="bullet-color2" (click)="changePriorityLevel(2)"></div>
       </ion-col>        
       <ion-col size="2">
-          <div class="bullet-color3"></div>
+          <div class="bullet-color3" (click)="changePriorityLevel(3)"></div>
       </ion-col>    
     </ion-row>
-    <ion-textarea placeholder="Details"></ion-textarea>
+    <ion-textarea placeholder="Details" [(ngModel)]="detailsInput"></ion-textarea>
 
-    <ion-img [src]="assets/picture.png"></ion-img>
+    <ion-input placeholder="imagePath" [(ngModel)]="imagePath"></ion-input>
+    
+    <!-- <ion-img [src]="assets/picture.png"></ion-img> -->
   </ion-content>
   

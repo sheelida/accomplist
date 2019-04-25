@@ -1,5 +1,7 @@
 {
   "name": "accomplist",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
