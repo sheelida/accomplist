@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { StorageService } from '../storage.service';
 import { Task } from 'src/models/task.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -10,7 +11,7 @@ import { Task } from 'src/models/task.model';
 export class Tab2Page {
   listTasks:Array<Task> = [];
   private theSearch = "";
-  constructor(private storage:StorageService){
+  constructor(private storage:StorageService, private router:Router){
 
   }
 
@@ -63,6 +64,10 @@ export class Tab2Page {
       }
       
     })
+  }
+  
+  taskDetails(id:number){
+    this.router.navigate(['/tabs/tab3', {id}]);
   }
 
   taskSearch(input:string){

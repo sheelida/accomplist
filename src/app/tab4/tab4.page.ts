@@ -56,7 +56,6 @@ export class Tab4Page implements OnInit {
     this.listTasks.push(task);
     this.sortList();
     this.saveList();
-    this.readStorage();
     this.router.navigate(['/tabs/tab1'])
   } 
 

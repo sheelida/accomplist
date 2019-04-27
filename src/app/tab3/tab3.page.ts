@@ -12,21 +12,18 @@ export class Tab3Page implements OnInit {
 
   id:number;
   listTasks:Array<Task> = [];
-  singleTask:Array<Task> =[];
   title:string;
   details:string;
   priority:number;
   imagePath:string;
+  status:boolean;
   dateCreated:number;
 
   constructor(private storage:StorageService, private route: ActivatedRoute){
-    this.id = JSON.parse(this.route.snapshot.paramMap.get('id'));
+    this.id = JSON.parse(this.route.snapshot.paramMap.get('id'));    
   }
   ngOnInit(){
- 
-    console.log(this.id);
   }
-
   ionViewDidEnter(){
     this.storage.readData('list')
     .then((response:any)=>{
@@ -36,23 +33,20 @@ export class Tab3Page implements OnInit {
       }
     })
     .catch((error)=> console.log(error));
-
-    this.taskDetails();
   }
 
   taskDetails(){
-    console.log("test",this.listTasks);
-    this.listTasks.forEach((task)=>{
-      if(task.id === this.id){
+      this.listTasks.forEach((task)=>{
+      if(task.id == this.id){
         this.title = task.title;
         this.details = task.details;
         this.priority = task.priority;
         this.imagePath = task.imagePath;
+        this.status = task.status;
         this.dateCreated = task.date;
-      
-        console.log("inner",this.title);
+  
       }
-      
     })
   }
+
 }

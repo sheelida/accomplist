@@ -3,13 +3,32 @@
     <ion-title>
       Task detail
     </ion-title>
-    <ion-button slot="end">
-      <ion-icon name="checkmark-circle"></ion-icon>
-    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <div *ngIf="taskDetails()"></div>
+    <ion-item lines="none">
+      <ion-buttons>
+          <ion-checkbox [checked]="this.status" slot ="start" readonly></ion-checkbox>
+      </ion-buttons>   
+
+      <ion-label>
+        {{ this.title }} 
+      </ion-label>  
+
+      <div [class.bullet-color1]="this.priority==1" ></div>
+      <div [class.bullet-color2]="this.priority==2" ></div>   
+      <div [class.bullet-color3]="this.priority==3" ></div>
+    </ion-item>
+    <ion-item lines="none"> 
+        <ion-label slot="start">Date created:</ion-label>     
+        <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]= "this.dateCreated" readonly></ion-datetime> 
+   </ion-item>
+    <ion-textarea readonly>{{ this.details }} </ion-textarea>
+    <ion-img [src]="this.imagePath"></ion-img>
+   
+     
 
 
 </ion-content>

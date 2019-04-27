@@ -28,6 +28,11 @@
     </ion-row>
     <ion-textarea placeholder="Details" [(ngModel)]="detailsInput"></ion-textarea>
     
-     <ion-img src="../../assets/picture.png"></ion-img>
+    <ion-row>
+      <ion-img src="../../assets/picture.png"></ion-img>
+      <ion-button>
+         <ion-icon name="md-add-circle" (click)="takePicture()"></ion-icon> 
+      </ion-button>
+    </ion-row>
   </ion-content>
   
