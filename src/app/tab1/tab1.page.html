@@ -1,23 +1,24 @@
 <ion-header>
   <ion-toolbar color="primary">
+
     <ion-buttons>
-      <div class="bullet-color"></div>
+      <div class="bullet-color" slot="start"></div>
       <div class="bullet-color2"  slot="start"></div>
       <div class="bullet-color3"  slot="start"></div>
 
     </ion-buttons>
-     
-    <ion-input placeholder="Search" color="light" ></ion-input>
+     <ion-searchbar [(ngModel)]="theSearch"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-item  *ngFor="let task of listTasks">
-    <ion-label *ngIf="task.status"> {{item.title}} </ion-label>
-  </ion-item>
-  <ion-buttons>
-    <ion-checkbox [checked]= "task.status" slot = "start" (ionChange)="changeItemStatus(task.id)"></ion-checkbox>
-  </ion-buttons>
-
-  
+    <div *ngIf="taskSearch(task.title)">
+          <ion-label *ngIf="!task.status" (click)="taskDetails(task.id)"> {{task.title}} </ion-label>
+    </div> 
+    <ion-buttons slot="start">
+        <ion-checkbox *ngIf="!task.status" slot = "start" (ionChange)="changeItemStatus(task.id)"></ion-checkbox>
+      </ion-buttons> 
+ 
+</ion-item>  
 </ion-content>
