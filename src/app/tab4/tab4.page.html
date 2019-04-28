@@ -4,6 +4,7 @@
         Add a new task
       </ion-title>
       <ion-buttons slot="end">
+        <!-- BUTTON THAT INSERTS IN THE LOCAL STORAGE -->
           <ion-button (click)="addListTask(titleInput, detailsInput, imagePath)">
               <ion-icon name="checkmark-circle"></ion-icon>
             </ion-button>
@@ -13,9 +14,11 @@
   </ion-header>
   
   <ion-content>
-      <ion-input placeholder="Title" [(ngModel)]="titleInput"></ion-input>
+    <!-- GET THE TITLE INPUT TO THE TYPESCRIPT VARIABLE -->
+      <ion-input placeholder="Title" [(ngModel)]="titleInput" [value]="title"></ion-input>
       <ion-label>Priority:</ion-label>
       <ion-row class="ion-align-start">
+      <!-- USER SELECTS PRIORITY ACCORDING THE COLOR AND SEND NUMBER TO THE STORAGE -->
       <ion-col size="2">  
         <div class="bullet-color1" (click)="changePriorityLevel(1)"></div>
       </ion-col>
@@ -26,10 +29,13 @@
           <div class="bullet-color3" (click)="changePriorityLevel(3)"></div>
       </ion-col>    
     </ion-row>
-    <ion-textarea placeholder="Details" [(ngModel)]="detailsInput"></ion-textarea>
+    <!-- GET THE DETAILS TEXTAREA INPUT TO THE TYPESCRIPT VARIABLE -->
+    <ion-textarea placeholder="Description" [(ngModel)]="detailsInput" [value]="details"></ion-textarea>
     
     <ion-row>
-      <ion-img ng-src="imagePath" src="../../assets/picture.png"></ion-img>
+      <!-- GET THE IMAGEPATH VARIABLE IF EXISTS, IF NOT SHOW THE DEFAULT PICTURE -->
+      <ion-img *ngIf="imagePath" [src]="imagePath"></ion-img>
+      <ion-img *ngIf="!imagePath" src="../../assets/picture.png"></ion-img>
 
       <!-- "../../assets/picture.png" -->
       <ion-button (click)="takePicture()">
