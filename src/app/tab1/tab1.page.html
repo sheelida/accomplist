@@ -1,20 +1,28 @@
 <ion-header>
   <ion-toolbar color="primary">
+    <!-- USE theSearch FROM TYPESCRIPT AND CHANGE VALUE -->
      <ion-searchbar [(ngModel)]="theSearch"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- ARRAY OF TASKS -->
   <ion-item lines="none" *ngFor="let task of listTasks">
+    <!-- SHOW ONLY RESULT THAT MATCHES THE SEARCH -->
     <div *ngIf="taskSearch(task.title)">
+      <!-- ngIf CONDITION TO SHOW ONLY TASKS THAT HAS STATUS AS FALSE -->
+      <!-- taskDetails() - SEND THE ID TO TaskDetails PAGE -->
           <ion-label *ngIf="!task.status" (click)="taskDetails(task.id)"> {{task.title}} </ion-label>
           
     </div> 
+    <!-- WILL SHOW ONLY THE BULLET THAT MEETS THE CONDITION -->
     <div [class.bullet-color1]="task.priority==1 && !task.status" slot="end"></div>
     <div [class.bullet-color2]="task.priority==2 && !task.status" slot="end"></div>   
-    <div [class.bullet-color3]="task.priority==3 && !task.status" slot="end"></div>
+    <div [class.bullet-color3]="task.priority==3 && !task.status" slot="end"></div>    
     
     <ion-buttons slot="start">
+      <!-- *ngIf SHOW CHECKBOX ACCORDING TO THE BOOLEAN DATA IN LOCAL STORAGE -->
+      <!-- changeItemStatus CHANGE THE STATUS DATA IN LOCALSTORAGE -->
         <ion-checkbox *ngIf="!task.status" slot = "start" (ionChange)="changeItemStatus(task.id)"></ion-checkbox>
     </ion-buttons> 
  

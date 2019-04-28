@@ -80,6 +80,7 @@ export class Tab4Page implements OnInit {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
       let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.imagePath = base64Image;
      }, (err) => {
       console.log(err);
      });

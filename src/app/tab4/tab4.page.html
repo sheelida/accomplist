@@ -29,9 +29,11 @@
     <ion-textarea placeholder="Details" [(ngModel)]="detailsInput"></ion-textarea>
     
     <ion-row>
-      <ion-img src="../../assets/picture.png"></ion-img>
-      <ion-button>
-         <ion-icon name="md-add-circle" (click)="takePicture()"></ion-icon> 
+      <ion-img ng-src="imagePath" src="../../assets/picture.png"></ion-img>
+
+      <!-- "../../assets/picture.png" -->
+      <ion-button (click)="takePicture()">
+         <ion-icon name="camera" ></ion-icon> 
       </ion-button>
     </ion-row>
   </ion-content>
